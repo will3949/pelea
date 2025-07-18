@@ -680,18 +680,344 @@
         </div>
     </section>
 
+<!-- Banner anuncios arriba de esto poner el iframe
+        -->
+<script type="text/javascript">
+	atOptions = {
+		'key' : '7ac77d503e4884ec99597cdbfc22a9cb',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/7ac77d503e4884ec99597cdbfc22a9cb/invoke.js"></script>
+
+<!-- Banner anuncios fin
+        -->
 
 
     <main class="content">
         <div class="article-header">
             <h1 class="article-title">Aquí verás/Here you will see UFC 318 Max Holloway vs Dustin Poirier</h1>
-            <div class="article-meta">
-                Publicado hace 4 horas | MMA | UFC
-            </div>
+            
         </div>
 
 
-<!-- Banner anuncios arriba de esto poner el iframe
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFC 318 Video Player</title>
+    <style>
+        .video-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .video-wrapper {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #ff8c42, #ff6b35);
+            animation: pulse-glow 2s infinite;
+        }
+
+        .video-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-title {
+            font-size: 1.8rem;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .video-subtitle {
+            color: #aaa;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ff3333;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background: #ff3333;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 15px;
+            background: #000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .video-frame:hover {
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-btn:hover {
+            background: #ff6b35;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .control-btn.active {
+            background: #ff6b35;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .quality-selector {
+            display: flex;
+            gap: 0.5rem;
+            background: #2a2a2a;
+            padding: 0.5rem;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .quality-btn {
+            background: transparent;
+            color: #aaa;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .quality-btn:hover {
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .quality-btn.active {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .video-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+
+        .info-item:hover {
+            border-color: #ff6b35;
+            transform: translateY(-2px);
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .video-frame {
+                height: 250px;
+            }
+            
+            .video-title {
+                font-size: 1.4rem;
+            }
+            
+            .video-subtitle {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .video-controls {
+                gap: 0.5rem;
+            }
+            
+            .control-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .quality-selector {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                background: linear-gradient(90deg, #ff6b35, #ff8c42, #ff6b35);
+            }
+            50% { 
+                background: linear-gradient(90deg, #ff8c42, #ff6b35, #ff8c42);
+            }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Loading placeholder */
+        .loading-placeholder {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #ff6b35;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background: #0a0a0a; font-family: Arial, sans-serif;">
+    <div class="video-container">
+        <div class="video-wrapper">
+            <div class="video-header">
+                <h2 class="video-title">🥊 UFC 318 EN VIVO</h2>
+                <div class="video-subtitle">
+                    <div class="live-indicator">
+                        <div class="live-dot"></div>
+                        EN VIVO
+                    </div>
+                    <span>Max Holloway vs Dustin Poirier 3</span>
+                    <span>📍 Nueva Orleans</span>
+                </div>
+            </div>
+            
+            <!-- Aquí va tu iframe de video -->
+            <iframe 
+                class="video-frame" 
+                src="about:blank"
+                title="UFC 318 Live Stream"
+                frameborder="0"
+                allowfullscreen
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+            
+            <div class="video-controls">
+                <button class="control-btn active">
+                    ▶️ STREAM PRINCIPAL
+                </button>
+            </div>
+            
+            <div class="video-info">
+                <div class="info-item">
+                    <div class="info-label">DURACIÓN</div>
+                    <div class="info-value">LIVE</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">CALIDAD</div>
+                    <div class="info-value">HD 1080p</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">EVENTO</div>
+                    <div class="info-value">UFC 318</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- Native Banner anuncios arriba de esto poner el iframe
         -->
 <script async="async" data-cfasync="false" src="//pl27194127.profitableratecpm.com/1e651c6b402d905e65af04d142b7bfac/invoke.js"></script>
 <div id="container-1e651c6b402d905e65af04d142b7bfac"></div>
