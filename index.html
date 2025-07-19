@@ -878,6 +878,7 @@
 </body>
 </html>
 
+
  <!-- Direct Link enmascarado anuncio
  -->
 <!DOCTYPE html>
@@ -885,273 +886,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Gana Boletos UFC!</title>
+    <title>Gana Boletos UFC</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
             padding: 20px;
-        }
-
-        .ufc-container {
-            position: relative;
-            max-width: 600px;
-            width: 100%;
-            background: linear-gradient(135deg, #ff6b00 0%, #ff8500 50%, #ffaa00 100%);
-            border-radius: 25px;
-            padding: 6px;
-            box-shadow: 
-                0 0 50px rgba(255, 107, 0, 0.5),
-                0 20px 40px rgba(0, 0, 0, 0.3);
-            animation: glow 2s ease-in-out infinite alternate;
-            overflow: hidden;
+            background: #f5f5f5;
         }
 
         .ufc-banner {
-            background: 
-                linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(20, 20, 20, 0.95)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hexagons" x="0" y="0" width="20" height="17.32" patternUnits="userSpaceOnUse"><polygon fill="none" stroke="%23333" stroke-width="0.5" points="10,1 18.66,6 18.66,15 10,20 1.34,15 1.34,6"/></pattern></defs><rect width="100" height="100" fill="url(%23hexagons)"/></svg>');
-            border-radius: 20px;
-            padding: 40px 30px;
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-decoration: none;
             display: block;
+            transition: transform 0.2s ease;
         }
 
         .ufc-banner:hover {
-            transform: translateY(-5px);
-            box-shadow: 
-                0 0 60px rgba(255, 107, 0, 0.7),
-                0 25px 50px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
         }
 
-        .ufc-logo {
-            width: 120px;
-            height: 80px;
-            background: linear-gradient(45deg, #ff6b00, #ffaa00);
-            border-radius: 15px;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 32px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        .main-title {
-            color: #fff;
-            font-size: 2.2em;
-            font-weight: 900;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 
-                2px 2px 4px rgba(0, 0, 0, 0.8),
-                0 0 20px rgba(255, 107, 0, 0.6);
-            animation: titleGlow 3s ease-in-out infinite alternate;
+        .title {
+            color: #d32f2f;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .subtitle {
-            color: #ffaa00;
-            font-size: 1.4em;
-            font-weight: 700;
-            margin-bottom: 25px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 20px;
         }
 
-        .cta-section {
-            background: linear-gradient(135deg, #ff6b00, #ff8500);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
+        .image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shine 3s infinite;
-        }
-
-        .cta-text {
+        .cta-button {
+            background: #d32f2f;
             color: white;
-            font-size: 1.6em;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .action-button {
-            background: linear-gradient(135deg, #fff, #f0f0f0);
-            color: #ff6b00;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.3em;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 3px solid #fff;
-            box-shadow: 
-                0 10px 20px rgba(0, 0, 0, 0.3),
-                inset 0 1px 3px rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-            animation: buttonBounce 2s infinite;
-        }
-
-        .action-button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #ffaa00, #ff8500);
-            color: white;
-            box-shadow: 
-                0 15px 30px rgba(0, 0, 0, 0.4),
-                0 0 30px rgba(255, 107, 0, 0.6);
-        }
-
-        .bonus-text {
-            color: #ffcc00;
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-top: 20px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-        }
-
-        .decorative-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .spark {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #ffaa00;
-            border-radius: 50%;
-            animation: sparkle 2s infinite;
-        }
-
-        .spark:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
-        .spark:nth-child(2) { top: 20%; right: 10%; animation-delay: 0.5s; }
-        .spark:nth-child(3) { bottom: 15%; left: 10%; animation-delay: 1s; }
-        .spark:nth-child(4) { bottom: 25%; right: 20%; animation-delay: 1.5s; }
-
-        @keyframes glow {
-            0% { box-shadow: 0 0 30px rgba(255, 107, 0, 0.5), 0 20px 40px rgba(0, 0, 0, 0.3); }
-            100% { box-shadow: 0 0 50px rgba(255, 107, 0, 0.8), 0 25px 50px rgba(0, 0, 0, 0.4); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes titleGlow {
-            0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 107, 0, 0.6); }
-            100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 170, 0, 0.8); }
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        @keyframes buttonBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-
-        @media (max-width: 768px) {
-            .ufc-banner {
-                padding: 30px 20px;
-            }
-            
-            .main-title {
-                font-size: 1.8em;
-            }
-            
-            .subtitle {
-                font-size: 1.2em;
-            }
-            
-            .cta-text {
-                font-size: 1.3em;
-            }
-            
-            .action-button {
-                font-size: 1.1em;
-                padding: 12px 30px;
-            }
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="ufc-container">
-        <a href="https://www.profitableratecpm.com/hs8re7te89?key=5efa6a587aebae595627458ea2058444" class="ufc-banner">
-            <div class="decorative-elements">
-                <div class="spark"></div>
-                <div class="spark"></div>
-                <div class="spark"></div>
-                <div class="spark"></div>
-            </div>
-            
-            <div class="ufc-logo">UFC</div>
-            
-            <h1 class="main-title">¡Oportunidad Única!</h1>
-            
-            <p class="subtitle">Gana Boletos VIP para el Próximo Evento</p>
-            
-            <div class="cta-section">
-                <div class="cta-text">🥊 ¡Participa Ahora! 🥊</div>
-                <div class="action-button">CONSEGUIR BOLETOS</div>
-                <div class="bonus-text">✨ Acceso exclusivo garantizado ✨</div>
-            </div>
-            
-            <div style="margin-top: 20px;">
-                <img src="./assets/imgs/participa_aqui_1.png" alt="Participa aquí" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
-            </div>
-        </a>
-    </div>
+    <a href="https://www.profitableratecpm.com/hs8re7te89?key=5efa6a587aebae595627458ea2058444" class="ufc-banner">
+        <div class="title">🥊 ¿Quieres ganar boletos UFC?</div>
+        <div class="subtitle">Participa y consigue tu entrada al próximo evento</div>
+        <img src="./assets/imgs/participa_aqui_1.png" alt="Participa aquí" class="image">
+        <div class="cta-button">¡Participar Ahora!</div>
+    </a>
 </body>
 </html>
- <!-- Direct Link enmascarado anuncio fin
- -->
 
-
+ <!-- Direct Link enmascarado anuncio fin-->
 
         <div class="fighters-section fade-in">
             <div class="fighter-card">
