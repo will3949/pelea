@@ -865,18 +865,218 @@
             </div>
             
             <!-- Aquí va tu iframe de video -->
-            <iframe 
-                class="video-frame" 
-                src="about:blank"
-                title="UFC 318 Live Stream"
-                frameborder="0"
-                allowfullscreen
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-            </iframe>
+           <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream con Botón de Play</title>
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            margin: 20px auto;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .play-overlay:hover {
+            background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .play-overlay:hover .play-button {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 25px solid #333;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+
+        .stream-info {
+            color: white;
+            text-align: center;
+        }
+
+        .stream-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .stream-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 15;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <!-- Iframe del video -->
+        <iframe 
+            id="videoFrame"
+            class="video-frame" 
+            src="about:blank"
+            title="UFC 318 Live Stream"
+            frameborder="0"
+            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+
+        <!-- Overlay con botón de play -->
+        <div id="playOverlay" class="play-overlay">
+            <div class="play-button">
+                <div class="play-icon"></div>
+            </div>
+            <div class="stream-info">
+                <div class="stream-title">UFC 318 Live Stream</div>
+                <div class="stream-subtitle">Haz clic para reproducir</div>
+            </div>
+        </div>
+
+        <!-- Overlay de carga -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // URL del stream - cambia esta por la URL real de tu transmisión
+        const STREAM_URL = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1';
+        
+        const playOverlay = document.getElementById('playOverlay');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const videoFrame = document.getElementById('videoFrame');
+
+        // Función para iniciar el stream
+        function startStream() {
+            const currentStreamUrl = STREAM_URL;
+            
+            // Mostrar loading
+            loadingOverlay.style.display = 'flex';
+            
+            // Simular un pequeño delay de carga (opcional)
+            setTimeout(() => {
+                // Cargar la URL real del stream
+                videoFrame.src = currentStreamUrl;
+                
+                // Ocultar overlays
+                playOverlay.classList.add('hidden');
+                loadingOverlay.style.display = 'none';
+            }, 1000);
+        }
+
+
+
+        // Event listener para el click en el overlay
+        playOverlay.addEventListener('click', startStream);
+
+        // Event listener para manejar cuando el iframe termine de cargar
+        videoFrame.addEventListener('load', () => {
+            if (videoFrame.src !== 'about:blank') {
+                loadingOverlay.style.display = 'none';
+            }
+        });
+
+
+    </script>
+</body>
+</html>
         </div>
     </div>
 </body>
 </html>
+ <!-- Fin Iframe
+ -->
+
 
 
  <!-- Direct Link enmascarado anuncio
